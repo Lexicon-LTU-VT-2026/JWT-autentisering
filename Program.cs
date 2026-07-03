@@ -23,6 +23,8 @@ namespace JWT_autentisering
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
 
+            builder.Services.AddHealthChecks();
+
             //builder.Services.AddSwaggerGen();
 
             builder.Services.AddSwaggerGen(options =>
@@ -107,6 +109,9 @@ namespace JWT_autentisering
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            // Lagt till 
+            app.MapHealthChecks("/health");
 
             app.UseHttpsRedirection();
 
